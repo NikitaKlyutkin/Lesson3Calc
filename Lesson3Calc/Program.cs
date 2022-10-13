@@ -14,6 +14,8 @@ internal class Program
         char fiveElements;
         int numRes = 0;
         int resize = 1;
+        char repit;
+        char repitdoit = 'N';
         double[] results = new double[0];
         while (again == 'Y')
         {
@@ -32,25 +34,34 @@ internal class Program
                 Console.ReadLine();
                 continue;
             }
-
-            Console.WriteLine("Enter operator( * , / , + , - ):");
-            oper = Convert.ToChar(Console.ReadLine());
-
+            if (repitdoit == 'N')
+            {
+                Console.WriteLine("Enter operator( * , / , + , - ):");
+                oper = Convert.ToChar(Console.ReadLine());
+            }
+            else
+            {
+                oper = repitdoit;
+            }
             switch(oper)
             {
                 case '+':
+                    repitdoit = '+';
                     total = number1 + number2;
                     Console.WriteLine($"Sum {number1} and {number2} result {total} .");
                     break;
                 case '-':
+                    repitdoit = '-';
                     total = number1 - number2;
                     Console.WriteLine($"Difference {number1} and {number2} result {total} .");
                     break;
                 case '*':
+                    repitdoit = '*';
                     total = number1 * number2;
                     Console.WriteLine($"Multiplication {number1} and {number2} result {total} .");
                     break;
                 case '/':
+                    repitdoit = '/';
                     if (number1 == 0)
                     {
                         total = 0;
@@ -76,6 +87,18 @@ internal class Program
                 
                 
             }
+
+            Console.Write("Repeat operation? (Y/N): ");
+            repit = Convert.ToChar(Console.ReadLine());
+            if (repit == 'Y')
+            {
+                oper = repitdoit;
+            }
+            else
+            {
+                repitdoit = 'N';
+            }
+
             Console.WriteLine(" ");
             ++resize;
             Array.Resize(ref results, resize); // Увеличение размера массива с учетом ++resize

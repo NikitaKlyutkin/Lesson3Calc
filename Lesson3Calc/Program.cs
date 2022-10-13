@@ -3,15 +3,6 @@ using System.Xml.Schema;
 
 internal class Program
 {
-    //public void ArrayFiveResult()
-    //{
-    //    double[] results = new double[5];
-    //    for (int i = 0; i < results.Length; i++)
-    //    {
-    //        results[i] = total;
-    //        Console.Write(results[i] + "\t");
-    //    }
-    //}
     public static void Main(string[] args)
     {
         double number1 = 0;
@@ -22,14 +13,13 @@ internal class Program
         char again = 'Y';
         char fiveElements;
         int numRes = 0;
-
-        double[] results = new double[5];
-
+        int resize = 1;
+        double[] results = new double[0];
         while (again == 'Y')
         {
-
             try
             {
+                Console.WriteLine($"Operation {resize}");
                 Console.WriteLine("Enter the first number(1):");
                 number1 = double.Parse(Console.ReadLine());
                 Console.WriteLine("Enter the second number(2):");
@@ -83,22 +73,33 @@ internal class Program
             if (again == 'y')
             {
                 again = 'Y';
+                
+                
             }
-            results[numRes] = total;
+            Console.WriteLine(" ");
+            ++resize;
+            Array.Resize(ref results, resize); // Увеличение размера массива с учетом ++resize
+            results[numRes] = total; //Запись в массив
             ++numRes;
-
+            
         }
-        //Запись в массив
-
-
+      
         Console.Write("Display the last 5 results?: ");
         fiveElements = Convert.ToChar(Console.ReadLine());
-        if (fiveElements == 'Y')
+        if (fiveElements == 'Y' || fiveElements == 'y')
         {
-            for (int i = 0; i < results.Length; i++)
+            if (results.Length > 5)
             {
-                Console.WriteLine(results[i]);
+                for (int i = results.Length - 5; i < results.Length - 1; i++)
+                {
+                    Console.WriteLine($"Result {i+1}: {results[i]}");
+                }
             }
+            else
+                for (int i = 0; i < results.Length - 1; i++)
+                {
+                    Console.WriteLine($"Result {i+1}: {results[i]}");
+                }
         }
 
     }

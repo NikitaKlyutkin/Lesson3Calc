@@ -1,5 +1,8 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using Lesson3Calc;
+using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Xml.Schema;
+
 
 internal class Program
 {
@@ -11,16 +14,18 @@ internal class Program
 
         char oper;
         char again = 'Y';
-        char fiveElements;
-        int numRes = 0;
-        int resize = 1;
+
+        int resize = 0;
         char repit;
         char repitdoit = 'N';
-        double[] results = new double[0];
+
+        DisplayOutput displayOutput = new DisplayOutput();
+
         while (again == 'Y')
         {
             try
             {
+                ++resize;
                 Console.WriteLine($"Operation {resize}");
                 Console.WriteLine("Enter the first number(1):");
                 number1 = double.Parse(Console.ReadLine());
@@ -78,14 +83,19 @@ internal class Program
                     break;
 
             }
+            
+            displayOutput.AddForList(total);
 
             Console.Write("Do you want to continue working? (Y/N): ");
             again = Convert.ToChar(Console.ReadLine());
-            if (again == 'y')
+            if (again == 'y' || again == 'Y')
             {
                 again = 'Y';
-                
-                
+            }
+            else
+            {
+                displayOutput.DisplayHis();
+                break;
             }
 
             Console.Write("Repeat operation? (Y/N): ");
@@ -97,33 +107,9 @@ internal class Program
             else
             {
                 repitdoit = 'N';
-            }
-
-            Console.WriteLine(" ");
-            ++resize;
-            Array.Resize(ref results, resize); // Увеличение размера массива с учетом ++resize
-            results[numRes] = total; //Запись в массив
-            ++numRes;
-            
+            }  
         }
-      
-        Console.Write("Display the last 5 results?: ");
-        fiveElements = Convert.ToChar(Console.ReadLine());
-        if (fiveElements == 'Y' || fiveElements == 'y')
-        {
-            if (results.Length > 5)
-            {
-                for (int i = results.Length - 5; i < results.Length - 1; i++)
-                {
-                    Console.WriteLine($"Result {i+1}: {results[i]}");
-                }
-            }
-            else
-                for (int i = 0; i < results.Length - 1; i++)
-                {
-                    Console.WriteLine($"Result {i+1}: {results[i]}");
-                }
-        }
+  
 
     }
 }

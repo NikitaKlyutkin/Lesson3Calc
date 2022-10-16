@@ -10,6 +10,7 @@ namespace Lesson3Calc
     internal class SwitchOper
     {
         public static char repitdoit = 'N';
+        public char сontinue;
         double total = 0;
         DisplayOutput displayOutput = new DisplayOutput();
         MathOperation mathOperation = new MathOperation();
@@ -105,19 +106,6 @@ namespace Lesson3Calc
             }
             return repitdoit;
         }
-        public char Again()
-        {
-            char again;
-            if(ContinueWorking() == 'N')
-            {
-                again = 'N';
-            }
-            else
-            {
-                again = 'Y';
-            }
-            return again;
-        }
         public char ContinueWorking()
         {
             char again;
@@ -126,13 +114,14 @@ namespace Lesson3Calc
             if (again == 'y' || again == 'Y')
             {
                 again = 'Y';
+                сontinue = 'Y';
                 
             }
             else if (again == 'N' || again == 'n')
             {
                 
                 displayOutput.DisplayHis();
-                again = 'N';
+                сontinue = 'N';
             }
             return again;
 

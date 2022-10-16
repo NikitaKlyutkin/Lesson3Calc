@@ -20,7 +20,16 @@ internal class Program
             displayOutput.AddForList(total);
 
             switchOper.ContinueWorking();
-            switchOper.RepeatOperation(); 
+            again = switchOper.сontinue;
+            if (again == 'Y')
+            {
+                switchOper.RepeatOperation();
+            }
+            else
+            {
+                break;
+            }
+            
         }
   
 

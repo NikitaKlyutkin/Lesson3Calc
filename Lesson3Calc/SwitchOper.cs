@@ -19,7 +19,7 @@ namespace Lesson3Calc
         double number2 = 0;
         char oper;
         char repit;
-        public double EnterNumAndSwitchOper()
+        public double EnterNum()
         {
             try
             {
@@ -35,8 +35,8 @@ namespace Lesson3Calc
             {
                 Console.WriteLine("Failed to convert string to number");
                 Console.ReadLine();
-                
-                
+
+
             }
             if (repitdoit == 'N')
             {
@@ -47,6 +47,13 @@ namespace Lesson3Calc
             {
                 oper = repitdoit;
             }
+            return number1;
+            return number2;
+            return oper;
+        }
+        public double SwitchOperation()
+        {
+            
             switch (oper)
             {
                 case '+':

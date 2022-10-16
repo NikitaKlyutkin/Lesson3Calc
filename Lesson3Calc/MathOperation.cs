@@ -24,6 +24,5 @@ namespace Lesson3Calc
         {
             return number1 / number2;
         }
-
     }
 }

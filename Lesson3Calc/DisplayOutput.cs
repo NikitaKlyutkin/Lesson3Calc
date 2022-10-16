@@ -28,25 +28,9 @@ namespace Lesson3Calc
             var fiveElements = Convert.ToChar(Console.ReadLine());
             if (fiveElements == 'Y' || fiveElements == 'y')
             {
-                //if (results.Length > 5)
-                //{
-                //    for (int i = results.Length - 5; i < results.Length - 1; i++)
-                //    {
-                //        Console.WriteLine($"Result {i + 1}: {results[i]}");
-                //    }
-                //}
-                //else
-                //{
-                //    for (int i = 0; i < results.Length - 1; i++)
-                //    {
-                //        Console.WriteLine($"Result {i + 1}: {results[i]}");
-                //    }
-                //}
-
                 int num = 0;
                 foreach (var item in queue)
                 {
-
                     ++num;
                     Console.WriteLine($"Result {num}:  {item}");
                 }

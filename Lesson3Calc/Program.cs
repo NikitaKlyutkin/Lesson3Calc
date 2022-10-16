@@ -14,11 +14,9 @@ internal class Program
         char again = 'Y';
         while (again == 'Y')
         {
-            total = switchOper.EnterNumAndSwitchOper();
-            
-            
+            switchOper.EnterNum();
+            total = switchOper.SwitchOperation();
             displayOutput.AddForList(total);
-
             switchOper.ContinueWorking();
             again = switchOper.сontinue;
             if (again == 'Y')
@@ -29,9 +27,6 @@ internal class Program
             {
                 break;
             }
-            
         }
-  
-
     }
 }
